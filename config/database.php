@@ -81,7 +81,8 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
+# THIS IS THE CONFIGUTARION FOR THE SUPBASE REMOTE CONNECTION
+# I THINK WE WILL NEED TO CHANGE IT IN THE FUTURE
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
@@ -90,6 +91,21 @@ return [
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+# THIS IS THE CONFIGURATION FOR THE LOCAL SUPABASE CONNECTION
+        'supabase_db' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_URL'),
+            'host' => env('DB_HOST', 'ORION\SIGEAC'),
+            'port' => env('DB_PORT', ''),
+            'database' => env('DB_DATABASE', 'SUPABASE_DB_MASTER'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', 'postgres'),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
