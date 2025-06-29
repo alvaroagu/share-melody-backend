@@ -1,40 +1,15 @@
 {
-    "version": 2,
+    "version": 3,
     "builds": [
         {
-            "src": "api/index.php",
-            "use": "@vercel/php",
-            "config": {
-                "includeFiles": [
-                    "api/php.ini",
-                    "public/**",
-                    "bootstrap/**",
-                    "app/**",
-                    "config/**",
-                    "database/**",
-                    "resources/**",
-                    "routes/**",
-                    "vendor/**"
-                ]
-            }
+            "src": "public/**/*.php",
+            "use": "vercel-php@latest"
         }
     ],
     "routes": [
         {
-            "src": "/build/assets/(.*)",
-            "dest": "/public/build/assets/$1"
-        },
-        {
-            "src": "/storage/(.*)",
-            "dest": "/public/storage/$1"
-        },
-        {
-            "src": "/images/(.*)",
-            "dest": "/public/images/$1"
-        },
-        {
             "src": "/(.*)",
-            "dest": "/api/index.php"
+            "dest": "/public/index.php"
         }
     ]
 }
