@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['api'])->group(function () {
-    Route::apiResource('/projects', ProjectController::class);
+    Route::get('/projects', [ProjectController::class, 'index']);
     //Route::apiResource('/danger-identifications', DangerIdentificationController::class);
     //Route::post('/update/follow-up-controls/{id}', [FollowUpControllController::class, 'updateFollowUpControl']);
 
