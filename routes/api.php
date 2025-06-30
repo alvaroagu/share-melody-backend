@@ -8,8 +8,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['api'])->group(function () {
     Route::get('/projects', [ProjectController::class, 'index']);
-    Route::get('/sheet-music', [SheetMusicController::class, 'index']);
 
+    //API REST FOR SHEET MUSIC
+    Route::get('/sheet-music', [SheetMusicController::class, 'index']);
+    Route::post('/sheet-music', [SheetMusicController::class, 'store']);
+    Route::get('/sheet-music/{id}', [SheetMusicController::class, 'show']);
+    Route::patch('/sheet-music/{id}', [SheetMusicController::class, 'update']);
+    Route::delete('/sheet-music/{id}', [SheetMusicController::class, 'destroy']);
 
     //Route::apiResource('/danger-identifications', DangerIdentificationController::class);
     //Route::post('/update/follow-up-controls/{id}', [FollowUpControllController::class, 'updateFollowUpControl']);
